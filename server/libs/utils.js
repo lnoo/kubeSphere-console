@@ -75,7 +75,7 @@ const getServerConfig = key => {
     // parse config yaml
     config = loadYaml(root('configs/config.yaml')) || {};
 
-    const tryFile = cwdResolve('configs/config.yaml');
+    const tryFile = cwdResolve('server/configs/config.yaml');
     if (fs.existsSync(tryFile)) {
       // merge local_config
       const localConfig = loadYaml(tryFile);
@@ -83,8 +83,7 @@ const getServerConfig = key => {
         merge(config, localConfig);
       }
     }
-
-    const tryLocalFile = cwdResolve('configs/local_config.yaml');
+    const tryLocalFile = cwdResolve('server/configs/local_config.yaml');
     if (fs.existsSync(tryLocalFile)) {
       // merge local_config
       const localConfig = loadYaml(tryLocalFile);

@@ -30,7 +30,7 @@ lerna-debug.log*
 .pnpm-debug.log*
 
 # Config
-configs/local_config.yaml
+server/configs/local_config.yaml
 
 # TypeScript
 *.tsbuildinfo
