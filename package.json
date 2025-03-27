@@ -20,14 +20,14 @@
     "build:locales": "esno scripts/build-locales.js",
     "build:packages": "esno scripts/build-packages.js",
     "build:prod": "cross-env dll=true ksc build:prod -s true",
-    "build:server": "NODE_ENV=production webpack --config scripts/webpack.server.js --stats errors-only",
+    "build:server": "set NODE_ENV=production && webpack --config scripts/webpack.server.js --stats errors-only",
     "changeset:add": "changeset add",
     "clean": "rimraf packages/*/{esm,cjs,lib,dist} packages/**/*.tsbuildinfo locales/dist dist **/.DS_Store",
     "create:ext": "ksc create:ext",
-    "dev": "concurrently -k --raw 'yarn dev:client' 'yarn dev:server'",
-    "dev:client": "NODE_ENV=development ksc dev -s true",
+    "dev": "concurrently -k --raw \"yarn dev:client\" \"yarn dev:server\"",
+    "dev:client": "set NODE_ENV=development && ksc dev -s true",
     "dev:client:full": "yarn clean ; yarn build:dll ; yarn build:locales ; yarn dev:client",
-    "dev:server": "NODE_ENV=development ksc-server",
+    "dev:server": "set NODE_ENV=development && ksc-server",
     "kubed:bump": "esno scripts/kubed-bump.ts",
     "lint-all": "concurrently --group --timings --prefix-colors=auto \"yarn:lint:*(!:fix)\"",
     "lint-all:fix": "concurrently --max-processes=1 --group --timings --prefix-colors=auto \"yarn:lint:*:fix\"",
@@ -40,7 +40,7 @@
     "release:packages": "changeset version && changeset publish",
     "release:packages:local": "yarn clean && yarn build:locales && yarn build:server && yarn build:packages && esno scripts/publish-packages.local.ts",
     "release:packages:snapshot": "bash scripts/release.packages.snapshot.sh",
-    "serve": "NODE_ENV=production node server/server.js"
+    "serve": "set NODE_ENV=production && node server/server.js"
   },
   "browserslist": [
     "> 1%",
