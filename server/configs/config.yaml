@@ -279,11 +279,7 @@ client:
         order: 0.1
         children:
           - { name: projects, title: PROJECT_PL, skipAuth: true }
-          # - {
-          #     name: federatedprojects,
-          #     title: MULTI_CLUSTER_PROJECT_PL,
-          #     ksModule: "kubefed",
-          #   }
+          - { name: federatedprojects, title: MULTI_CLUSTER_PROJECT_PL, ksModule: 'kubefed' }
       #      - {
       #        name: devops,
       #        title: DEVOPS_PROJECT_PL,
